@@ -9,7 +9,7 @@ const socket = io('/');
 const username = meetUsername
 
 var peer = new Peer(undefined, {
-    host: 'https://protected-retreat-21863.herokuapp.com/',
+    host: 'https://protected-retreat-21863.herokuapp.com',
     port: '443'
     // setting port for peerjs to listen on
 });
