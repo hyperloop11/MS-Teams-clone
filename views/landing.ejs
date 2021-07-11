@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+        <!--CSS files-->
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css"
+			integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk="
+			crossorigin="anonymous"
+		/>
+		<link rel="stylesheet" href="css/chatStyle.css" />
+
+		<title>NearYou</title>
+
+	</head>
+	<body>
+		<div class="join-container">
+			<header class="join-header">
+				<h1> NearYou</h1>
+			</header>
+			<main class="join-main">
+                <button onclick="redirectLink()" class="btn">Start Instant Meeting</button>
+			</main>
+		</div>
+
+        <div class="join-container">
+			<main class="join-main">
+                <form id="join-meeting" action="/joinMeet" method="POST">
+					<div class="form-control">
+						<label for="meetLink">Join a Meeting</label>
+						<input
+							type="text"
+							name="meetLink"
+							id="meetLink"
+							placeholder="Paste link..."
+							required
+						/>
+					</div>
+					<button onclick="joinMeet" class="btn">Join meeting</button>
+				</form>
+			</main>
+		</div>
+
+        <script>
+            let uuvid =  "<%= redirectLink %>";
+            //the uuvid from server
+            function redirectLink(){
+                window.open(window.location.href + uuvid);
+            }
+        </script>
+
+	</body>
+</html>

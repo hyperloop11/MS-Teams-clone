@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!--CSS files-->
+    <link rel="stylesheet" href="css/videoCallStyle.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+    <!--Javascript files -->
+    <script>
+        const ROOM_ID = "<%= roomId %>";
+        const meetUsername = "<%= meetUsername %>";
+        // passing room id from server to client
+    </script>
+    <script src="https://kit.fontawesome.com/48d22b4e8d.js" crossorigin="anonymous"></script>
+    <script src="/socket.io/socket.io.js" defer></script>
+    <script src="https://unpkg.com/peerjs@1.3.1/dist/peerjs.min.js" defer></script>
+    <script src="js/videoCall.js" defer></script>
+
+    <!--Bootstrap CSS-->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+    <title>NearYou</title>
+    
+</head>
+<body>
+    <div class="main">
+        <div class="main__left">
+            <!--append videos to this div-->
+            <div class="main__videos">
+                <div id="video-grid">
+
+                </div>
+            </div>
+
+            <div class="main__controls">
+                <div class="main__controls__block">
+                    <div onclick="copyLink()" class="main__controls__button">
+                        <i class="fas fa-link"></i>
+                        <span>Copy link</span>
+                    </div>
+                </div>
+                <div class="main__controls__block">
+                    <div onclick="muteUnmute()" class="main__controls__button main__mute_button">
+                        <i class="fas fa-microphone"></i>
+                        <span>Mute</span>
+                    </div>
+                    <div onclick="playStop()" class="main__controls__button main__video_button">
+                        <i class="fas fa-video"></i>
+                        <span>Stop video</span>
+                    </div>
+                    <div class="main__controls__button">
+                        <i onclick="window.location='http://localhost:3030/chatIndex'" class="fas fa-phone-slash stop"></i>
+                        <span>End call</span>
+                    </div>
+
+                </div>
+            </div>
+            
+        </div>
+        <div class="main__right">
+            <div class="main__header">
+                <h3>Chat</h3>
+            </div>
+
+            <div class="main__chat_window">
+                <ul class="messages">
+
+                </ul>
+            </div>
+
+            <div class="main__message_container">
+                <input id="chat_message" type="text" placeholder="Say something...">
+            </div>
+            
+        </div>
+    </div>
+</body>
+</html>
