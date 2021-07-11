@@ -13,7 +13,8 @@ const formatMessage = require('./utils/chatMessages');
 
 const peerServer = ExpressPeerServer(server, {
     //peer with express
-    debug: true
+    debug: true,
+    allow_discovery: true
 });
 
 const BOT_NAME = 'NearYou Bot';
