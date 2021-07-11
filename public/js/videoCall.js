@@ -1,16 +1,16 @@
-const videoGrid    = document.getElementById('video-grid');
-const myVideo      = document.createElement('video');
+const videoGrid = document.getElementById('video-grid');
+const myVideo = document.createElement('video');
 
 myVideo.muted = true;
 
 const socket = io('/');
 
 // server -> html -> js
-const username = meetUsername 
+const username = meetUsername
 
 var peer = new Peer(undefined, {
     host: '/',
-    port: '3001'
+    port: '443'
     // setting port for peerjs to listen on
 });
 
@@ -35,7 +35,7 @@ navigator.mediaDevices.getUserMedia({
     addVideoStream(myVideo, stream);
 
     // when new connetion is detected
-    socket.on('user-connected', userId =>{
+    socket.on('user-connected', userId => {
         connectToNewUser(userId, stream)
     })
 
@@ -49,11 +49,11 @@ navigator.mediaDevices.getUserMedia({
     })
 
     // messages in video call
-    let text =$('input');
+    let text = $('input');
 
     // listning for enter key to recieve input
-    $('html').keydown((e)=> {
-        if(e.which==13 && text.val().length !==0){
+    $('html').keydown((e) => {
+        if (e.which == 13 && text.val().length !== 0) {
             socket.emit('message', text.val(), username);
             text.val('')
             // setting the input value to blank string again
@@ -61,19 +61,19 @@ navigator.mediaDevices.getUserMedia({
     });
 
     // when message is createed, output to DOM
-    socket.on('createMessage', (message, username) =>{
+    socket.on('createMessage', (message, username) => {
         $("ul").append(
             `
             <li class = "message"><b>USER  </b>${message}</li>
             `
-            );
+        );
         scrollToBottom();
     });
 
-    
+
 })
 
-peer.on('user-disconnected', userId =>{
+peer.on('user-disconnected', userId => {
     if (peers[userId]) peers[userId].close()
 })
 
@@ -85,14 +85,14 @@ peer.on('open', id => {
 })
 
 // conenct to user and output video stream to DOM
-function connectToNewUser(userId, stream){
+function connectToNewUser(userId, stream) {
     const call = peer.call(userId, stream)
     const video = document.createElement('video')
     call.on('stream', userVideoStream => {
         addVideoStream(video, userVideoStream)
     })
 
-    call.on('close', ()=>{
+    call.on('close', () => {
         video.remove()
     })
 
@@ -100,8 +100,8 @@ function connectToNewUser(userId, stream){
 }
 
 // append video stream to list of videos
-function addVideoStream (video, stream){
-    video.srcObject=stream;
+function addVideoStream(video, stream) {
+    video.srcObject = stream;
     video.addEventListener('loadedmetadata', () => {
         video.play();
     })
@@ -124,7 +124,7 @@ const muteUnmute = () => {
     // getting the current status, whether its mute or unmute
     const enabled = myVideoStream.getAudioTracks()[0].enabled;
 
-    if(enabled) {
+    if (enabled) {
         myVideoStream.getAudioTracks()[0].enabled = false;
         setUnmuteButton();
     } else {
@@ -135,8 +135,8 @@ const muteUnmute = () => {
 
 // DOM button for voice
 const setMuteButton = () => {
-    const html = 
-    `
+    const html =
+        `
     <i class="fas fa-microphone"></i>
     <span> Mute </span>
     `
@@ -144,8 +144,8 @@ const setMuteButton = () => {
 }
 
 const setUnmuteButton = () => {
-    const html = 
-    `
+    const html =
+        `
     <i class="unmute fas fa-microphone-slash"></i>
     <span> Unmute </span>
     `
@@ -157,7 +157,7 @@ const playStop = () => {
     // getting the current status, whether its mute or unmute
     const enabled = myVideoStream.getVideoTracks()[0].enabled;
 
-    if(enabled) {
+    if (enabled) {
         myVideoStream.getVideoTracks()[0].enabled = false;
         setPlayVideoButton();
     } else {
@@ -168,8 +168,8 @@ const playStop = () => {
 
 // changing DOM icon
 const setPlayVideoButton = () => {
-    const html = 
-    `
+    const html =
+        `
     <i class="stop fas fa-video-slash"></i>
     <span> Play Video </span>
     `
@@ -178,8 +178,8 @@ const setPlayVideoButton = () => {
 
 // changing DOM icon
 const setStopVideoButton = () => {
-    const html = 
-    `
+    const html =
+        `
     <i class="fas fa-video"></i>
     <span> Stop Video </span>
     `
@@ -200,24 +200,24 @@ const copyLink = () => {
 
 // share and stop sharing screen
 // * * not working * *
-const shareScreen = ()=>{
+const shareScreen = () => {
 
     if (!displayMediaStream) {
-        navigator.mediaDevices.getDisplayMedia().then(stream =>{
+        navigator.mediaDevices.getDisplayMedia().then(stream => {
             displayMediaStream = stream;
             const video = document.createElement('video');
-            addVideoStream(video,displayMediaStream);
+            addVideoStream(video, displayMediaStream);
             enabled = displayMediaStream.getTracks()[0];
         })
-      }
-    if(enabled) {
+    }
+    if (enabled) {
         displayMediaStream.getTracks()[0].enabled = false;
         stopScreenShareButton();
     } else {
         displayMediaStream.getTracks()[0].enabled = true;
         const call = peer.call(userId, stream)
         const video = document.createElement('video')
-        call.on('stream', userVideoStream =>{
+        call.on('stream', userVideoStream => {
             addVideoStream(video, userVideoStream)
         })
         startScreenShareButton();
@@ -226,8 +226,8 @@ const shareScreen = ()=>{
 
 // DOM icon while screen is sharing
 const stopScreenShareButton = () => {
-    const html = 
-    `
+    const html =
+        `
     <i class="fas fa-stop"></i>
     <span> Stop Video </span>
     `
@@ -236,8 +236,8 @@ const stopScreenShareButton = () => {
 
 // DOM icon to stop screen sharing 
 const startScreenShareButton = () => {
-    const html = 
-    `
+    const html =
+        `
     <<i class="fas fa-share-square"></i>
     <span> Stop Video </span>
     `
