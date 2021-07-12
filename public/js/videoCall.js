@@ -8,7 +8,7 @@ const socket = io('/');
 // server -> html -> js
 const username = meetUsername
 
-var peer = new Peer(undefined, {
+var peer = new Peer({
     secure: true,
     host: 'protected-retreat-21863.herokuapp.com',
     port: '443'
