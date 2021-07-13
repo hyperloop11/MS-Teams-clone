@@ -1,10 +1,10 @@
-const express = require('express');
-const app = express();
-const server = require('http').Server(app);
-const io = require('socket.io')(server);
-const { v4: uuidv4 } = require('uuid');
-const flash = require('express-flash');
-const session = require('express-session');
+const express               = require('express');
+const app                   = express();
+const server                = require('http').Server(app);
+const io                    = require('socket.io')(server);
+const {v4: uuidv4}          = require('uuid');
+const flash                 = require('express-flash');
+const session               = require('express-session');
 const { ExpressPeerServer } = require('peer');
 
 

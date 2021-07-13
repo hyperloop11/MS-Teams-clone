@@ -1,6 +1,6 @@
-const videoGrid = document.getElementById('video-grid');
-const myVideo = document.createElement('video');
-
+const videoGrid    = document.getElementById('video-grid');
+const myVideo      = document.createElement('video');
+ 
 myVideo.muted = true;
 
 const socket = io('/');
@@ -18,7 +18,7 @@ var peer = new Peer({
 
 let myVideoStream, displayMediaStream;
 
-// maintain list of conencted peers
+// maintain list of connected peers
 const peers = {};
 
 
@@ -36,7 +36,7 @@ navigator.mediaDevices.getUserMedia({
     myVideoStream = stream;
     addVideoStream(myVideo, stream);
 
-    // when new connetion is detected
+    // when new connection is detected
     socket.on('user-connected', userId => {
         connectToNewUser(userId, stream)
     })
@@ -53,7 +53,7 @@ navigator.mediaDevices.getUserMedia({
     // messages in video call
     let text = $('input');
 
-    // listning for enter key to recieve input
+    // listening for enter key to receive input
     $('html').keydown((e) => {
         if (e.which == 13 && text.val().length !== 0) {
             socket.emit('message', text.val(), username);
@@ -62,7 +62,7 @@ navigator.mediaDevices.getUserMedia({
         }
     });
 
-    // when message is createed, output to DOM
+    // when message is created, output to DOM
     socket.on('createMessage', (message, username) => {
         $("ul").append(
             `
@@ -86,7 +86,7 @@ peer.on('open', id => {
 
 })
 
-// conenct to user and output video stream to DOM
+// connect to user and output video stream to DOM
 function connectToNewUser(userId, stream) {
     const call = peer.call(userId, stream)
     const video = document.createElement('video')

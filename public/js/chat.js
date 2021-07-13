@@ -26,11 +26,11 @@ chatForm.addEventListener('submit', (e)=>{
 
     e.preventDefault();
 
-    // emiting msg to the server
+    // emitting msg to the server
     const msg = e.target.elements.msg.value;
     socket.emit('chat-chatMessage', msg);
     
-    // scrool to bottom and clear input field
+    // scroll to bottom and clear input field
     // chatMessages.scrollTop=chatMessages.scrollHeight;
     let element = $('.chat-messages');
     element.scrollTop(element.prop('scrollHeight'));

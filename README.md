@@ -1,1 +1,6 @@
-# MS-Teams-clone
+# NearYou
+
+My project for Microsoft engage.
+
+## The motivation
+

@@ -1,9 +1,9 @@
 @import url("https://fonts.googleapis.com/css?family=Roboto&display=swap");
 
 :root {
-  --dark-color-a: cornflowerblue;
-  --dark-color-b: rgb(28, 28, 31);
-  --light-color: rgb(181, 206, 253);
+  --dark-color-a: black;
+  --dark-color-b: rgb(67, 34, 97);
+  --light-color: rgb(47, 231, 216);
   --success-color: #5cb85c;
   --error-color: #d9534f;
 }
@@ -17,8 +17,10 @@
 body {
   font-family: "Roboto", sans-serif;
   font-size: 16px;
-  background: var(--light-color);
-  margin: 20px;
+  background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRMUhfDZHVnnf7B6kRlx6yTDPa_k4U89TlSTQ&usqp=CAU");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 ul {

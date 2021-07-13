@@ -28,7 +28,7 @@ video {
 
 .main__controls {
   display: flex;
-  background-color: cornflowerblue;
+  background-color: black;
   color: white;
   padding: 5px;
   justify-content: space-between;
@@ -53,23 +53,26 @@ video {
 }
 
 .main__controls__button:hover {
-  background-color: rgb(111, 148, 194);
+  background-color: rgb(66, 66, 66);
   border-radius: 5px;
 }
 
 .main__videos {
   display: flex;
   flex-grow: 1;
-  justify-content: center; /*alighn items vertically*/
+  justify-content: center; /*align items vertically*/
   align-items: center;
-  background-color: rgb(28, 28, 31);
+  background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRMUhfDZHVnnf7B6kRlx6yTDPa_k4U89TlSTQ&usqp=CAU");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .main__right {
   flex: 0.2;
   display: flex;
   flex-direction: column;
-  background-color: rgb(125, 169, 250);
+  background-color: rgb(67, 34, 97);
 }
 
 .main__chat_window {
