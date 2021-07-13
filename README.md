@@ -17,3 +17,7 @@ A video calling and chat website which lets users video call anyone around the w
 2. [Presentation](https://drive.google.com/file/d/17UwqlnNbQ3twt5iD6Dxpq9jPuKKS29NE/view?usp=sharing)
 3. [Youtube demo](https://youtu.be/a-3kQd-gtMo)
 
+# Screenshots
+![1](https://i.imgur.com/LqFqw7S.png)
+![2](https://i.imgur.com/izIYqmQ.png)
+![3](https://i.imgur.com/3t9tfDg.png)
