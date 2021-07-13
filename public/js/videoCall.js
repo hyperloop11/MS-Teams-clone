@@ -10,7 +10,7 @@ const username = meetUsername
 
 var peer = new Peer({
     secure: true,
-    host: 'protected-retreat-21863.herokuapp.com',
+    host: 'nearyou2.herokuapp.com',
     port: '443',
     path: '/peerjs'
     // setting port for peerjs to listen on
