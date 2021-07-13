@@ -12,7 +12,8 @@ A video calling and chat website which lets users video call anyone around the w
 
 
 # Links and references
-1. Blog detailing use of agile
-2. Presentation Link
-3. Youtube demo link
+1. [Deployment](https://nearyou2.herokuapp.com/)
+1. [My blog with agile method sprints](https://hyperloop11.github.io/MyBlog/posts/Engage-and-agile/)
+2. [Presentation](https://drive.google.com/file/d/17UwqlnNbQ3twt5iD6Dxpq9jPuKKS29NE/view?usp=sharing)
+3. [Youtube demo](https://youtu.be/a-3kQd-gtMo)
 
